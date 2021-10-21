@@ -9,5 +9,13 @@ pipeline {
       }
     }
 
+    stage('Unit Test') {
+      steps {
+        tool 'Gradle 7.2'
+        tool 'JDK9'
+        junit '**/testDebugUnitTest/*.xml'
+      }
+    }
+
   }
 }
