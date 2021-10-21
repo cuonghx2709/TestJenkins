@@ -5,7 +5,6 @@ pipeline {
       steps {
         tool 'Gradle 7.2'
         sh './gradlew lint'
-        androidLint()
       }
     }
 
