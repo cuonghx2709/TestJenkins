@@ -12,7 +12,7 @@ pipeline {
       steps {
         tool 'Gradle 7.2'
         tool 'JDK9'
-        junit '**/testDebugUnitTest/*.xml'
+        junit(testResults: '*.xml', allowEmptyResults: true)
       }
     }
 
