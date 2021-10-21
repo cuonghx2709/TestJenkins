@@ -12,7 +12,8 @@ pipeline {
       steps {
         tool 'Gradle 7.2'
         tool 'JDK9'
-        junit(testResults: '*.xml', allowEmptyResults: true)
+        sh 'gradle jacocoTestReportDebug '
+        junit(testResults: '**/testDebugUnitTest/*.xml', allowEmptyResults: true)
       }
     }
 
