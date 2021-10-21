@@ -33,6 +33,5 @@ task jacocoTestReportDebug(type: JacocoReport) {
 
     reports {
         xml.enabled = true
-        html.enabled = true
     }
 }
