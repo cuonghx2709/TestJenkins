@@ -34,7 +34,6 @@ pipeline {
 
       }
       steps {
-        sh 'source ~/.bash_profile'
         sh 'qark --apk "app\\build\\outputs\\apk\\debug\\app-debug.apk"'
       }
     }
