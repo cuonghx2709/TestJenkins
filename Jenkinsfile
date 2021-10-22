@@ -34,13 +34,11 @@ pipeline {
 
       }
       steps {
-        sh 'qark --apk "app\\build\\outputs\\apk\\debug\\app-debug.apk"'
+        sh '''source ~./bash_profile
+qark --apk "app\\build\\outputs\\apk\\debug\\app-debug.apk"'''
       }
     }
 
-  }
-  environment {
-    PATH = '/Users/cuonghoang/Library/Python/2.7/bin:$PATH'
   }
   parameters {
     choice(choices: ['Yes', 'No'], description: 'Do you want to perform Security Testing: ', name: 'SecurityTesting')
