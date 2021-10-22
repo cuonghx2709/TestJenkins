@@ -21,7 +21,7 @@ pipeline {
       steps {
         tool 'Gradle 7.2'
         tool 'JDK9'
-        sh '''./gradlew assemble'''
+        sh './gradlew assemble'
         archiveArtifacts '**/*.apk'
       }
     }
@@ -31,13 +31,14 @@ pipeline {
         expression {
           params.SecurityTesting == 'Yes'
         }
+
       }
       steps {
-        sh ''''''
+        sh 'qark --apk "app\\build\\outputs\\apk\\release\\app-debug.apk"'
       }
     }
-  }
 
+  }
   parameters {
     choice(choices: ['Yes', 'No'], description: 'Do you want to perform Security Testing: ', name: 'SecurityTesting')
   }
