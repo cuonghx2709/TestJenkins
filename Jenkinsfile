@@ -39,6 +39,9 @@ pipeline {
     }
 
   }
+  environment {
+    PATH = '/Users/cuonghoang/Library/Python/2.7/bin:$PATH'
+  }
   parameters {
     choice(choices: ['Yes', 'No'], description: 'Do you want to perform Security Testing: ', name: 'SecurityTesting')
   }
