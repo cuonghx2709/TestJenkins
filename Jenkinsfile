@@ -17,5 +17,28 @@ pipeline {
       }
     }
 
+    stage('Build') {
+      steps {
+        tool 'Gradle 7.2'
+        tool 'JDK9'
+        sh '''./gradlew assemble'''
+        archiveArtifacts '**/*.apk'
+      }
+    }
+
+    stage('Security Testing using QARK') {
+      when {
+        expression {
+          params.SecurityTesting == 'Yes'
+        }
+      }
+      steps {
+        sh ''''''
+      }
+    }
+  }
+
+  parameters {
+    choice(choices: ['Yes', 'No'], description: 'Do you want to perform Security Testing: ', name: 'SecurityTesting')
   }
 }
